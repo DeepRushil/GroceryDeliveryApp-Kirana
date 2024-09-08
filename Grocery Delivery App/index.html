@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kirana by Rushil</h1>
+        <nav>
+            <button onclick="showCart()">View Cart</button>
+        </nav>
+    </header>
+    <main class="main">
+        <section id="products">
+            <h2>Available Groceries</h2>
+            <div class="product" data-id="1" data-name="Apple" data-price="1.5">
+                <h3>Apple</h3>
+                <p>Price: ₹50</p>
+                <button onclick="addToCart(1, 'Apple', 1.5)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-name="Banana" data-price="0.5">
+                <h3>Banana</h3>
+                <p>Price: ₹45</p>
+                <button onclick="addToCart(2, 'Banana', 0.5)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="3" data-name="Carrot" data-price="0.8">
+                <h3>Carrot</h3>
+                <p>Price: ₹80</p>
+                <button onclick="addToCart(3, 'Carrot', 0.8)">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart" class="modal hidden">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total: ₹0.00</p>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+        <button onclick="hideCart()">Close Cart</button>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment" class="modal hidden">
+        <h2>Payment</h2>
+        <p>Total: <span id="payment-total">₹0.00</span></p>
+        <button onclick="makePayment()">Pay Now</button>
+        <button onclick="hidePayment()">Cancel</button>
+    </div>
+
+    <!-- Tracking Screen -->
+    <div id="tracker" class="modal hidden">
+        <h2>Order Tracking</h2>
+        <p>Your order is on its way!</p>
+        <p>Status: <span id="order-status">In Transit</span></p>
+        <button onclick="completeOrder()">Complete Order</button>
+        <button onclick="hideTracker()">Close Tracker</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
